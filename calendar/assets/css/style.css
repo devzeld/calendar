@@ -23,17 +23,21 @@ html,body{
 
 .calendar-header{
     background: lightgrey;
+    font-weight: 400;
+    padding: 10px;
 
     display: flex;
     justify-content: center;
-    align-content: center;
-    font-weight: 400;
-    padding: 10px;
+    align-items: center;
+}
+
+.calendar-cols{
+
 }
 
 .calendar-days{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style-type:none;
 }
 

@@ -14,17 +14,19 @@
 <div class="calendar border">
     <div class="calendar-header border">
         <p>November 2023</p>
+        <div class="icons">
+            <span class="material-symbols-outlined border">chevron_left</span>
+            <span class="material-symbols-outlined border">chevron_right</span>
+        </div>
     </div>
-    <div class="icons">
-        <span class="material-symbols-outlined border">chevron_left</span>
-        <span class="material-symbols-outlined border">chevron_right</span>
+    <div class="calendar-cols">
+        <ul class="calendar-days">
+            <?php
+            $days = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
+            getDays($days);
+            ?>
+        </ul>
     </div>
-    <ul class="calendar-days">
-        <?php
-        $days = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
-        getDays($days);
-        ?>
-    </ul>
 </div>
 </body>
 </html>
