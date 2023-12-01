@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,200;1,300&display=swap');
+:root{
+    --primary-clr: royalblue;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,33 +10,183 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html,body{
-    place-items: center;
-    background: linear-gradient(to right, pink, lightblue);
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, pink, lightblue);
+}
+
+.container{
+    position: relative;
+    width: 1200px;
+    min-height: 850px;
+    margin: 0 auto;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    background-color: royalblue;
+}
+
+.container .left{
+    width: 60%;
+    padding: 20px;
 }
 
 .calendar{
-    background-color: white;
-    border-radius: 45px;
-    height: 500px;
-    width: max-content;
-    overflow: hidden;
-    padding: 30px 50px 0 0;
-}
-
-.calendar-header{
-    background: lightgrey;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: dimgrey;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.calendar::before,
+.calendar::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 13px;
+    height: 97%;
+    border-radius: 0 5px 5px 0;
+    background-color: lightgrey;
+    transform: translateY(-50%);
+}
+
+.calendar::before {
+    left: calc(100% + 12px);
+    height: 94%;
+    background-color: darkgrey;
+}
+
+.calendar .month{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    text-shadow : 0 0.2rem 0.7rem rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.calendar .month span,
+.calendar .month span{
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 200ms ease;
+}
+
+.calendar .month span:hover,
+.calendar .month span:hover{
+    color: var(--primary-clr);
+    transform: scale(1.6);
+}
+
+.calendar .weekdays{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow : 0 0.2rem 0.7rem rgba(0, 0, 0, 0.5);
+}
+.calendar .weekdays div{
+    width: 14%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    font-weight: 400;
-    padding: 10px;
+}
+.calendar .days{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.calendar .days .day{
+    width: 14%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--primary-clr);
+    /* border: 1px solid grey; */
 }
 
-.calendar-days{
-
+.calendar .day:not(.prev-date, .next-date):hover{
+    color: white;
+    transition: all 150ms ease;
+    background-color: var(--primary-clr);
 }
-.border{
-    border: 1px solid red;
+
+.calendar .days .prev-date,
+.calendar .days .next-date{
+    color: lightgrey;
 }
 
+.calendar .days .selected{
+    position: relative;
+    font-size: 1.6rem;
+    color: white;
+    background-color: var(--primary-clr);
+}
+
+.calendar .days .selected::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px 2px var(--primary-clr);
+}
+
+.calendar .days .today{
+    font-size: 1.6rem;
+}
+
+.calendar .days .event{
+    position: relative;
+}
+
+.calendar .days .event::after{
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 75%;
+    height: 6px;
+    border-radius: 35px;
+    transform: translateX(-50%);
+    background-color: var(--primary-clr);
+}
+
+.calendar .event:hover::after{
+    background-color: white;
+}
+
+.calendar .selected.event::after{
+    background-color: white;
+    bottom: 20%;
+}
+
+.calendar .selected.event{
+    padding-bottom: 10px;
+}

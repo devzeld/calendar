@@ -8,33 +8,38 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-    <title>HomePage</title>
+    <title>Calendar HomePage</title>
 </head>
 <body>
-<div class="calendar border">
-    <div class="calendar-header border">
-        <p>November</p>
+<div class="container">
+    <div class="left">
+        <div class="calendar">
+            <div class="month">
+                <span class="material-symbols-outlined">chevron_left</span>
+                <div class="date">November 2023</div>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            <div class="weekdays">
+                <div>mon</div>
+                <div>tue</div>
+                <div>wed</div>
+                <div>thu</div>
+                <div>fri</div>
+                <div>sat</div>
+                <div>sun</div>
+            </div>
+            <div class="days">
+                <?php
+                for ($i = -30; $i <= 30; $i++) {
+                    if ($i == 15) {
+                        echo "<div class='day active selected'>$i</div>";
+                    }
+                    echo "<div class='day'>$i</div>";
+                }
+                ?>
+            </div>
+        </div>
     </div>
-    <div class="icons">
-        <span class="material-symbols-outlined border">chevron_left</span>
-        <span class="material-symbols-outlined border">chevron_right</span>
-    </div>
-    <ul class="calendar-days">
-        <?php
-        $days = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
-        getDays($days);
-        ?>
-    </ul>
-
 </div>
 </body>
 </html>
-<?php
-function getDays($days): void
-{
-    for ($i = 0; $i < 7; $i++) {
-        echo "<li>$days[$i]</li>";
-    }
-}
-
-?>
