@@ -8,10 +8,11 @@
 
 html,body{
     place-items: center;
-    background: linear-gradient(to right, pink, lightblue);
+    background: linear-gradient(to left, pink, lightblue);
 }
 
 .calendar{
+    margin: auto;
     background-color: white;
     border-radius: 45px;
     height: 500px;
@@ -22,6 +23,7 @@ html,body{
 
 .calendar-header{
     background: lightgrey;
+
     display: flex;
     justify-content: center;
     align-content: center;
@@ -30,8 +32,11 @@ html,body{
 }
 
 .calendar-days{
-
+    display: flex;
+    justify-content: space-between;
+    list-style-type:none;
 }
+
 .border{
     border: 1px solid red;
 }

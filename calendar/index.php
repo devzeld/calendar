@@ -13,7 +13,7 @@
 <body>
 <div class="calendar border">
     <div class="calendar-header border">
-        <p>November</p>
+        <p>November 2023</p>
     </div>
     <div class="icons">
         <span class="material-symbols-outlined border">chevron_left</span>
@@ -25,7 +25,6 @@
         getDays($days);
         ?>
     </ul>
-
 </div>
 </body>
 </html>
@@ -33,7 +32,7 @@
 function getDays($days): void
 {
     for ($i = 0; $i < 7; $i++) {
-        echo "<li>$days[$i]</li>";
+        echo "<li>$days[$i]&nbsp;</li>";
     }
 }
 
